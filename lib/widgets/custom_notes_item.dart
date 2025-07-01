@@ -16,12 +16,12 @@ class CustomNotesItem extends StatelessWidget {
         children: [
           ListTile(
             title: Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Text('Flutter Tips', style: TextStyle(color: Colors.black,fontSize: 24)),
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text('Flutter Tips', style: TextStyle(color: Colors.black,fontSize: 28)),
             ),
             subtitle: Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: Text('Build your career with Hassan Nawishy  ', style: TextStyle(color: Colors.black.withOpacity(.5),fontSize: 18)),
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Text('Build your career with Hassan Nawishy  ', style: TextStyle(color: Colors.black.withOpacity(.5),fontSize: 16)),
             ),
             trailing: IconButton(onPressed: (){}, icon:const Icon(
               Icons.delete,color: Colors.black,size: 30,
