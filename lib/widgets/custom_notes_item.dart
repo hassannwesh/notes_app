@@ -29,7 +29,7 @@ class CustomNotesItem extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 16),
-            child: Text('May 20,2025', style: TextStyle(color: Colors.black.withOpacity(.5),fontSize: 18)),
+            child: Text('May 20,2025', style: TextStyle(color: Colors.black.withOpacity(.5),fontSize: 12)),
           ),
         ],
       ),
