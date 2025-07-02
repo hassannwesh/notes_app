@@ -9,7 +9,11 @@ class AddNotesBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.only(
+        right: 16,
+        left: 16,
+        bottom: MediaQuery.of(context).viewInsets.bottom,//بيخلي المحتوى يترفع تلقائياً لما الكيبورد تظهر
+      ),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
