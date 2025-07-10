@@ -5,13 +5,17 @@ import '../models/note_model.dart';
 part 'notes_state.dart';
 class NotesCubit extends Cubit<NotesState>{
   NotesCubit() : super(NotesInitial());
-  fetchAllNotes()async{
+  List<NoteModel>? notes;
+  fetchAllNotes() {
     try {
       var noteBox = Hive.box<NoteModel>(kNotesBox);
-      List<NoteModel>notes=noteBox.values.toList();
-      emit(NotesSuccess(notes));
+      notes = noteBox.values.toList();
+      print('Notes fetched: ${notes?.length} notes'); // هيطبع عدد الملاحظات
+      if (notes != null && notes!.isNotEmpty) {
+        print('First note title: ${notes![0].title}');}
+        emit(NotesSuccess()); // إصدار حالة النجاح بعد جلب الملاحظات
     } catch (e) {
-      emit(NotesFailure(e.toString()));
+      emit(NotesFailure(e.toString())); // إصدار حالة الخطأ إذا حدثت مشكلة
     }
   }
 }
