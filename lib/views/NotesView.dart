@@ -10,26 +10,23 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context)=>NotesCubit(),
-      child: Scaffold(
-        // resizeToAvoidBottomInset دا عشان لما تفتح الكيبورد ما يغطيش علي الbottom sheet لان الScaffold بتعدل حجم الbody تمم
-        resizeToAvoidBottomInset: true,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: kPrimaryColor,
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,// دا عشان ما يبقاغ ارتفاع ال (BOTTOM SHEET) ثابت تمم
-              builder: (context) {
-                return AddNotesBottomSheet();
-              },
-            );
-          },
-          child: Icon(Icons.add, color: Colors.black),
-        ),
-        body: NotesViewBody(),
+    return Scaffold(
+      // resizeToAvoidBottomInset دا عشان لما تفتح الكيبورد ما يغطيش علي الbottom sheet لان الScaffold بتعدل حجم الbody تمم
+      resizeToAvoidBottomInset: true,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: kPrimaryColor,
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,// دا عشان ما يبقاغ ارتفاع ال (BOTTOM SHEET) ثابت تمم
+            builder: (context) {
+              return AddNotesBottomSheet();
+            },
+          );
+        },
+        child: Icon(Icons.add, color: Colors.black),
       ),
+      body: NotesViewBody(),
     );
   }
 }
