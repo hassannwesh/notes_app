@@ -5,16 +5,18 @@ import '../constant.dart';
 
 class CustomTextFiled extends StatelessWidget {
   const CustomTextFiled(
-      {super.key, this.onSaved,required this.hintText, required this.maxLines});
+      {super.key, this.onSaved,required this.hintText, required this.maxLines, this.onChanged});
 
   final String hintText;
   final int maxLines;
 
   final void Function(String?)? onSaved;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
         onSaved:onSaved,
         validator:(value){
           if(value?.isEmpty??true){
