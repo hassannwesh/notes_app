@@ -14,8 +14,7 @@ class AddNotesBottomSheet extends StatelessWidget {
       create: (context) => AddNoteCubit(),
       child: BlocConsumer<AddNoteCubit, AddNotesState>(
         listener: (context, state) {
-          if (state is AddNoteFailure) {
-          }
+          if (state is AddNoteFailure) {}
           if (state is AddNoteSuccess) {
             BlocProvider.of<NotesCubit>(context).fetchAllNotes();
             Navigator.pop(context);
@@ -29,11 +28,12 @@ class AddNotesBottomSheet extends StatelessWidget {
                 right: 16,
                 left: 16,
                 bottom:
-                    MediaQuery.of(context)
-                        .viewInsets
-                        .bottom, //بيخلي المحتوى يترفع تلقائياً لما الكيبورد تظهر
+                MediaQuery
+                    .of(context)
+                    .viewInsets
+                    .bottom, //بيخلي المحتوى يترفع تلقائياً لما الكيبورد تظهر
               ),
-              child: const SingleChildScrollView(child: AddNoteForm()),
+              child: const SingleChildScrollView(child: AddNoteForm(),),
             ),
           );
         },

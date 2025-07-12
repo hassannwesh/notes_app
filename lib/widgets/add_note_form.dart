@@ -5,6 +5,7 @@ import 'package:notesapp/cubits/add_note_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
 
 import 'Custom_text_filed.dart';
+import 'color_list_view.dart';
 import 'custom_bottom.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -44,12 +45,16 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 5,
           ),
-          SizedBox(height: 60),
+          SizedBox(height: 15),
+          SizedBox(
+            height: 20*2,
+              child: ColorList()),
+          SizedBox(height: 20),
           BlocBuilder<AddNoteCubit,AddNotesState>(
             builder: (context,state) {
               return CustomBottom(
                 isLoading:state is AddNoteLoading ? true:false,
-              onTap: () {
+                onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     var formattedDate = DateFormat.yMMMd().format(DateTime.now());
