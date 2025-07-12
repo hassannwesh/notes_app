@@ -46,9 +46,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLines: 5,
           ),
           SizedBox(height: 15),
-          SizedBox(
-            height: 20*2,
-              child: ColorList()),
+          ColorListView(),
           SizedBox(height: 20),
           BlocBuilder<AddNoteCubit,AddNotesState>(
             builder: (context,state) {
