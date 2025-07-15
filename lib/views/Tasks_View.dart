@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notesapp/widgets/task_item.dart';
 import '../constant.dart';
 import '../widgets/bottom_sheet_add_notes.dart';
-import '../widgets/notes_view_body.dart';
+import '../widgets/custom_view_body.dart';
 class TasksView extends StatelessWidget {
   const TasksView({super.key});
   @override
@@ -23,7 +24,11 @@ class TasksView extends StatelessWidget {
         },
         child: Icon(Icons.add, color: Colors.black),
       ),
-      body: NotesViewBody(title: 'Tasks',),
+      body: CustomViewBody(title: 'Tasks',
+        itemWidgetBuilder: (context,note){
+        return TaskItem();
+        },
+      ),
 
 
     );

@@ -2,19 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notesapp/cubits/notes_cubit.dart';
+import '../models/note_model.dart';
 import '../views/Tasks_View.dart';
 import 'custom_appBar.dart';
 import 'custom_bottom_navigation_bar.dart';
-import 'notes_list_view.dart';
+import 'custom_list_view.dart';
 
-class NotesViewBody extends StatefulWidget {
-  const NotesViewBody({super.key, required this.title});
+class CustomViewBody extends StatefulWidget {
+  const CustomViewBody({super.key, required this.title, required this.itemWidgetBuilder});
+  final Widget Function(BuildContext context, NoteModel note) itemWidgetBuilder;
   final String title;
   @override
-  State<NotesViewBody> createState() => _NotesViewBodyState();
+  State<CustomViewBody> createState() => _CustomViewBodyState();
 }
 
-class _NotesViewBodyState extends State<NotesViewBody> {
+class _CustomViewBodyState extends State<CustomViewBody> {
 
   @override
   void initState() {
@@ -30,7 +32,9 @@ class _NotesViewBodyState extends State<NotesViewBody> {
           SizedBox(height: 50),
            CustomAppbar(
              title:widget.title,icon: Icons.settings,),
-          Expanded(child: NotesListView()),
+          Expanded(child: CustomListView(
+            itemBuilderForNote: widget.itemWidgetBuilder,
+          )),
         ],
       ),
     );

@@ -5,9 +5,9 @@ import '../constant.dart';
 
 class CustomTextFiled extends StatelessWidget {
   const CustomTextFiled(
-      {super.key, this.onSaved,required this.hintText, required this.maxLines, this.onChanged, this.controller});
+      {super.key, this.onSaved, this.hintText, required this.maxLines, this.onChanged, this.controller});
 
-  final String hintText;
+  final String? hintText;
   final int maxLines;
   final void Function(String?)? onSaved;
   final Function(String)? onChanged;

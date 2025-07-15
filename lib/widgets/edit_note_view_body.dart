@@ -17,7 +17,24 @@ class EditNoteViewBody extends StatefulWidget {
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
 
-  String ? title,content;
+  late TextEditingController _titleController;
+  late TextEditingController _contentController;
+  @override
+  void initState() {
+    super.initState();
+    // تهيئة الـ TextEditingController بالقيم الحالية للنوتة
+    _titleController = TextEditingController(text: widget.note.title);
+    _contentController = TextEditingController(text: widget.note.subtitle);
+  }
+
+  @override
+  void dispose() {
+    // التخلص من الـ TextEditingController لتجنب تسرب الذاكرة
+    _titleController.dispose();
+    _contentController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,8 +44,8 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
           const SizedBox(height: 50),
           CustomAppbar(
             onPressed: () {
-              widget.note.title = title ?? widget.note.title;
-              widget.note.subtitle = content ?? widget.note.subtitle;
+              widget.note.title = _titleController.text;
+              widget.note.subtitle = _contentController.text;
               widget.note.save();
               BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               Navigator.pop(context);
@@ -38,18 +55,19 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
           ),
           const SizedBox(height: 50),
           CustomTextFiled(
+            controller: _titleController,
             onChanged: (value) {
-              title = value;
             },
-            hintText: widget.note.title,
+           // hintText: widget.note.title,
             maxLines: 1,
           ),
           const SizedBox(height: 18),
           CustomTextFiled(
+            controller: _contentController,
             onChanged: (value) {
-              content = value;
+
             },
-            hintText: widget.note.subtitle,
+            //hintText: widget.note.subtitle,
             maxLines: 5,
           ),
           const SizedBox(height: 18),

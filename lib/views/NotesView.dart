@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notesapp/constant.dart';
 import '../widgets/bottom_sheet_add_notes.dart';
-import '../widgets/notes_view_body.dart';
+import '../widgets/custom_view_body.dart';
+import '../widgets/notes_item.dart';
 
 
 class NotesView extends StatelessWidget {
@@ -25,8 +26,12 @@ class NotesView extends StatelessWidget {
         },
         child: Icon(Icons.add, color: Colors.black),
       ),
-      body:NotesViewBody(
+      body:CustomViewBody(
         title: 'Notes',
+    itemWidgetBuilder: (context, note) {
+    return NotesItem(note: note);
+
+    }
       ),
 
 
