@@ -1,12 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:notesapp/constant.dart';
+import '../constant.dart';
 import '../widgets/bottom_sheet_add_notes.dart';
 import '../widgets/notes_view_body.dart';
-
-
-class NotesView extends StatelessWidget {
-  const NotesView({super.key});
-
+class TasksView extends StatelessWidget {
+  const TasksView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +23,7 @@ class NotesView extends StatelessWidget {
         },
         child: Icon(Icons.add, color: Colors.black),
       ),
-      body:NotesViewBody(
-        title: 'Notes',
-      ),
-
+      body: NotesViewBody(title: 'Tasks',),
 
 
     );

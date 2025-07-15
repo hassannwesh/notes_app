@@ -16,8 +16,8 @@ class EditNoteViewBody extends StatefulWidget {
 }
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
-  String? title, content;
 
+  String ? title,content;
   @override
   Widget build(BuildContext context) {
     return Padding(

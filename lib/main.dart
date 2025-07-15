@@ -4,6 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/simple_bloc_observer.dart';
 import 'package:notesapp/views/NotesView.dart';
+import 'package:notesapp/views/Home_View.dart';
 import 'constant.dart';
 import 'cubits/notes_cubit.dart';
 
@@ -28,7 +29,7 @@ class NotesApp extends StatelessWidget {
             brightness: Brightness.dark,
             fontFamily: 'Poppins',
         ),
-        home: NotesView(),
+        home: HomeView(),
       ),
     );
   }
