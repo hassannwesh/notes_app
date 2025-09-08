@@ -6,7 +6,7 @@ import '../models/note_model.dart';
 import '../views/Tasks_View.dart';
 import 'custom_appBar.dart';
 import 'custom_bottom_navigation_bar.dart';
-import 'custom_list_view.dart';
+import 'note_list_view.dart';
 
 class CustomViewBody extends StatefulWidget {
   const CustomViewBody({super.key, required this.title, required this.itemWidgetBuilder});
